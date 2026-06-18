@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --accent-cyan: #67e8f9;
+  --accent-lime: #bef264;
+  --accent-coral: #fb7185;
+  --ink-deep: #05070c;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br;
+    background-image:
+      radial-gradient(circle at 12% 12%, rgba(103, 232, 249, 0.18) 0%, transparent 32%),
+      radial-gradient(circle at 86% 14%, rgba(190, 242, 100, 0.14) 0%, transparent 28%),
+      radial-gradient(circle at 82% 86%, rgba(251, 113, 133, 0.14) 0%, transparent 28%),
+      radial-gradient(circle at 20% 20%, #1b1f29 0%, #090b10 48%, #030406 100%);
+  }
+}
+
+@layer components {
+  .grid-noise {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+    animation: pulseGrid 4s ease-in-out infinite;
+  }
+
+  .glass {
+    @apply bg-white/10 border border-cyan-400/25 backdrop-blur-[18px];
+    background: linear-gradient(
+      140deg,
+      rgba(103, 232, 249, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 42%,
+      rgba(190, 242, 100, 0.08) 100%
+    );
+    border: 1px solid rgba(103, 232, 249, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .glass:hover {
+    border-color: rgba(190, 242, 100, 0.35);
+    box-shadow: 0 16px 45px rgba(103, 232, 249, 0.14);
+  }
+
+  .reveal {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .js .reveal {
+    @apply opacity-0 translate-y-6;
+  }
+
+  .js .reveal.show {
+    animation: reveal 0.8s ease forwards;
+  }
+
+  .brand-mark {
+    @apply flex items-center justify-center h-8 w-8 rounded-full;
+    border: 1px solid rgba(103, 232, 249, 0.55);
+    background: linear-gradient(145deg, rgba(103, 232, 249, 0.35), rgba(251, 113, 133, 0.2));
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-indent: 0.18em;
+  }
+
+  .profile-spot {
+    @apply relative;
+  }
+
+  .profile-spot::before {
+    content: "";
+    @apply absolute -inset-[10px] rounded-[1.75rem] -z-10;
+    background: linear-gradient(120deg, rgba(103, 232, 249, 0.5), rgba(190, 242, 100, 0.45), rgba(251, 113, 133, 0.45));
+    filter: blur(12px);
+    opacity: 0.75;
+  }
+
+  .profile-spot img {
+    @apply w-full h-full object-cover;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-cyan-300 to-lime-300;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGrid {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
