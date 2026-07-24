@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Azul petróleo/royal como acento principal */
+  --color-accent-brand: var(--accent-brand);
+  --color-accent-brand-hover: var(--accent-brand-hover);
+  --color-accent-brand-muted: var(--accent-brand-muted);
+
+  /* Tokens semânticos do portfólio */
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-divider: var(--divider);
+  --color-tag-bg: var(--tag-bg);
+  --color-tag-text: var(--tag-text);
+
+  /* Tokens shadcn (mantidos para compatibilidade) */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  /* Fontes */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), 'Georgia', serif;
+}
+
+/* ─── LIGHT MODE ─── */
+:root {
+  color-scheme: light;
+
+  /* Azul petróleo — HSL(207, 70%, 28%) */
+  --accent-brand: oklch(0.38 0.10 240);
+  --accent-brand-hover: oklch(0.30 0.12 240);
+  --accent-brand-muted: oklch(0.92 0.03 240);
+
+  /* Superfícies */
+  --surface: oklch(0.99 0 0);           /* quase branco */
+  --surface-elevated: oklch(0.975 0 0); /* branco levemente acinzentado */
+
+  /* Texto */
+  --ink: oklch(0.12 0 0);             /* quase preto */
+  --ink-muted: oklch(0.42 0 0);       /* cinza médio */
+  --ink-faint: oklch(0.65 0 0);       /* cinza claro */
+
+  /* Outros */
+  --divider: oklch(0.90 0 0);
+  --tag-bg: oklch(0.93 0.03 240);
+  --tag-text: oklch(0.30 0.10 240);
+
+  /* shadcn mapeados */
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: var(--surface-elevated);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--surface);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: var(--ink-muted);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--divider);
+  --input: var(--divider);
+  --ring: var(--accent-brand);
+  --radius: 0.375rem;
+
+  /* sidebar */
+  --sidebar: var(--surface-elevated);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--surface);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--divider);
+  --sidebar-ring: var(--ring);
+}
+
+/* ─── DARK MODE ─── */
+.dark {
+  color-scheme: dark;
+
+  --accent-brand: oklch(0.62 0.12 232);
+  --accent-brand-hover: oklch(0.72 0.10 232);
+  --accent-brand-muted: oklch(0.22 0.06 232);
+
+  --surface: oklch(0.11 0 0);
+  --surface-elevated: oklch(0.16 0 0);
+
+  --ink: oklch(0.96 0 0);
+  --ink-muted: oklch(0.65 0 0);
+  --ink-faint: oklch(0.45 0 0);
+
+  --divider: oklch(1 0 0 / 10%);
+  --tag-bg: oklch(0.22 0.06 232);
+  --tag-text: oklch(0.72 0.10 232);
+
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: var(--surface-elevated);
+  --card-foreground: var(--ink);
+  --popover: var(--surface-elevated);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--surface);
+  --secondary: oklch(0.20 0 0);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.20 0 0);
+  --muted-foreground: var(--ink-muted);
+  --accent: oklch(0.20 0 0);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--divider);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--accent-brand);
+  --radius: 0.375rem;
+
+  --sidebar: var(--surface-elevated);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--surface);
+  --sidebar-accent: oklch(0.20 0 0);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--divider);
+  --sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Seleção de texto com cor da marca */
+  ::selection {
+    background-color: oklch(0.38 0.10 240 / 20%);
+    color: var(--ink);
+  }
+  .dark ::selection {
+    background-color: oklch(0.62 0.12 232 / 30%);
+  }
+}
